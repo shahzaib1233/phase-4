@@ -1,0 +1,107 @@
+---
+# Deployment for FastAPI Backend Application
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-backend
+  labels:
+    app: fastapi-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fastapi-backend
+  template:
+    metadata:
+      labels:
+        app: fastapi-backend
+    spec:
+      containers:
+      - name: fastapi-backend
+        image: fastapi-backend:latest  # Replace with your image name and tag
+        ports:
+        - containerPort: 8000
+          name: http-api
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: fastapi-secrets
+              key: database-url
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: fastapi-secrets
+              key: secret-key
+        - name: DEBUG
+          value: "false"
+        - name: LOG_LEVEL
+          value: "info"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1000
+          runAsGroup: 1000
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false  # Required for FastAPI app to write logs/temp files
+          capabilities:
+            drop:
+            - ALL
+---
+# Service for FastAPI Backend Application
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapi-backend-service
+  labels:
+    app: fastapi-backend
+spec:
+  selector:
+    app: fastapi-backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+      name: http
+  type: ClusterIP  # Change to LoadBalancer or NodePort as needed
+---
+# ConfigMap for non-sensitive configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fastapi-config
+data:
+  LOG_LEVEL: "info"
+  DEBUG: "false"
+---
+# Example Secret (apply separately with actual values)
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: fastapi-secrets
+# type: Opaque
+# data:
+#   database-url: <base64-encoded-database-url>
+#   secret-key: <base64-encoded-secret-key>

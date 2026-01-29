@@ -1,0 +1,111 @@
+openapi: 3.0.3
+info:
+  title: AI Todo Chatbot API
+  description: API for conversational AI todo management
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+    description: Development server
+  - url: https://api.example.com
+    description: Production server
+
+paths:
+  /api/{user_id}/chat:
+    post:
+      summary: Send message to AI chatbot
+      description: Send a message to the AI chatbot and receive a response with potential tool calls
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          description: The ID of the authenticated user
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: The user's message to the chatbot
+                  example: "Add task buy groceries"
+                conversation_id:
+                  type: string
+                  description: Optional conversation ID to continue existing conversation
+                  example: "123e4567-e89b-12d3-a456-426614174000"
+              required:
+                - message
+      responses:
+        '200':
+          description: Successful response from the AI chatbot
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    description: The AI's response to the user
+                    example: "I've added 'buy groceries' to your tasks."
+                  conversation_id:
+                    type: string
+                    description: The conversation ID for continued interaction
+                    example: "123e4567-e89b-12d3-a456-426614174000"
+                  tool_calls:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: The name of the tool to call
+                        arguments:
+                          type: object
+                          description: Arguments for the tool call
+                    example:
+                      - name: "add_task"
+                        arguments:
+                          title: "buy groceries"
+                          description: "Grocery shopping for the week"
+        '400':
+          description: Bad request - invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized - invalid or missing JWT
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden - user_id mismatch
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: string
+          description: Error code
+      example:
+        error: "Invalid authentication token"
+        code: "AUTH_001"

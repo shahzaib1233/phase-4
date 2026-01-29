@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --card: #ffffff;
+  --card-foreground: #171717;
+
+  --popover: #ffffff;
+  --popover-foreground: #171717;
+
+  --primary: #0ea5e9;
+  --primary-foreground: #f8fafc;
+
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #0ea5e9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+
+    --card: #0f172a;
+    --card-foreground: #ededed;
+
+    --popover: #0f172a;
+    --popover-foreground: #ededed;
+
+    --primary: #38bdf8;
+    --primary-foreground: #0f172a;
+
+    --secondary: #1e293b;
+    --secondary-foreground: #e2e8f0;
+
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+
+    --accent: #1e293b;
+    --accent-foreground: #e2e8f0;
+
+    --destructive: #7f1d1d;
+    --destructive-foreground: #f8fafc;
+
+    --border: #334155;
+    --input: #334155;
+    --ring: #38bdf8;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Override input text color to be more visible */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  color: #000000 !important; /* Black text for better visibility */
+}
+
+/* Ensure text is visible in modals and other components */
+input[type="text"]:not([readonly]),
+input[type="email"]:not([readonly]),
+input[type="password"]:not([readonly]),
+textarea:not([readonly]),
+select:not([readonly]) {
+  color: #000000 !important;
+}
+
+/* Dark mode */
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark textarea,
+.dark select {
+  color: #ffffff !important; /* White text for dark mode */
+}
+
+.dark input[type="text"]:not([readonly]),
+.dark input[type="email"]:not([readonly]),
+.dark input[type="password"]:not([readonly]),
+.dark textarea:not([readonly]),
+.dark select:not([readonly]) {
+  color: #ffffff !important;
+}
+
+/* Specific overrides for form inputs in modals */
+.form-input,
+.ui-input,
+.card input,
+.modal input,
+.popup input {
+  color: #000000 !important;
+}
+
+.dark .form-input,
+.dark .ui-input,
+.dark .card input,
+.dark .modal input,
+.dark .popup input {
+  color: #ffffff !important;
+}

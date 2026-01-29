@@ -1,0 +1,80 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git/refs/replace/
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.pytest_cache/
+.hypothesis/
+.coverage*
+.pyre/
+.pytype/
+mypy_cache/
+.dmypy.json
+dmypy.json
+
+# FastAPI / uvicorn
+*.db
+*.db-journal
+uvicorn_error.log
+reload-server.log
+
+# Environment variables
+.env
+.env.local
+.env.dev
+.env.test
+.env.prod
+.env*.local
+.env*.dev
+.env*.test
+.env*.prod
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Node modules
+node_modules/
+
+# Next.js
+frontend/.next/
