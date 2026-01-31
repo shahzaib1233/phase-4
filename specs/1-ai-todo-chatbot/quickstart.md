@@ -24,7 +24,7 @@ This guide provides instructions for developers to set up and run the AI-Powered
 2. **Configure environment variables in `.env`:**
    ```env
    # Database
-   DATABASE_URL=postgresql://neondb_owner:npg_XwKLDv1o3CyM@ep-cool-cherry-abr7d232-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+   DATABASE_URL=your_database_url_here
 
    # Better Auth
    BETTER_AUTH_SECRET=your_better_auth_secret

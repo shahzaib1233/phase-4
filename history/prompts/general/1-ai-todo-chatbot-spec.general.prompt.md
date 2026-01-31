@@ -42,7 +42,7 @@ Success criteria:
 
 Constraints:
 - Use Cohere via OpenAI-compatible endpoint in Agents SDK (AsyncOpenAI client with custom base_url/api_key)
-- Neon DB: DATABASE_URL = postgresql://neondb_owner:npg_jLYZRFz2GS1p@ep-solitary-dream-ab4gqt5t-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+- Neon DB: DATABASE_URL = YOUR_DATABASE_URL_HERE
 - New tables: conversations (user_id, id, created_at, updated_at), messages (user_id, id, conversation_id, role, content, created_at)
 - Changes in /backend/ (chat endpoint, MCP tools, conversation models, Cohere config)
 - Reuse Better Auth JWT
@@ -52,7 +52,7 @@ Constraints:
 
 Not building:
 - Voice, multi-language (yet), Phase V features
-- Direct Cohere client (use OpenAI-compatible for and remember we will use cohera as an ai agent like we use open ai api key we will not use open ai api key we will use cohera so do work accordingly and my cohera api key sjIDGeQcQXYFsOTr7czPRYpU0J5pC6gIzzd16xOG and my neon db url is DATABASE_URL=postgresql://neondb_owner:npg_jLYZRFz2GS1p@ep-solitary-dream-ab4gqt5t-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require and neon db url alrady exist in the directory you can see and that is workign properly # Cohere Settings
+- Direct Cohere client (use OpenAI-compatible for and remember we will use cohera as an ai agent like we use open ai api key we will not use open ai api key we will use cohera so do work accordingly and my cohera api key YOUR_COHERE_API_KEY_HERE and my neon db url is DATABASE_URL=YOUR_DATABASE_URL_HERE and neon db url alrady exist in the directory you can see and that is workign properly # Cohere Settings
 COHERE_CHAT_MODEL=command-r-08-2024
 COHERE_TEMPERATURE=0.3
 COHERE_MAX_TOKENS=500 these are the seettings you ahve to use now wriet specification for htis

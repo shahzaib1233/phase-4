@@ -7,7 +7,7 @@ import os
 # Get database URL from environment variable
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "postgresql://neondb_owner:npg_XwKLDv1o3CyM@ep-cool-cherry-abr7d232-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+    "postgresql://username:password@host:port/database_name"
 )
 
 # Create engine

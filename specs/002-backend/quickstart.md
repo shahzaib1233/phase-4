@@ -12,8 +12,8 @@
 Create a `.env` file with the following variables:
 
 ```bash
-DATABASE_URL=postgresql://neondb_owner:npg_oLwn0mCNT@ep-late-sun-adcwxiyv-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
-BETTER_AUTH_SECRET=XVnB1zTnXfBum9I5uDms1TRbwAe6tyD6
+DATABASE_URL=your_database_url_here
+BETTER_AUTH_SECRET=your_auth_secret_here
 ```
 
 ## Dependencies Installation

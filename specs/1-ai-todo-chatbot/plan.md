@@ -13,7 +13,7 @@ Implementation of a conversational AI Todo chatbot that enables natural language
 
 **Language/Version**: Python 3.11, TypeScript/JavaScript for frontend integration
 **Primary Dependencies**: FastAPI, SQLModel, Better Auth, Cohere API, OpenAI Agents SDK (compatible), MCP Python SDK
-**Storage**: Neon Serverless PostgreSQL (DATABASE_URL='postgresql://neondb_owner:npg_XwKLDv1o3CyM@ep-cool-cherry-abr7d232-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require')
+**Storage**: Neon Serverless PostgreSQL (DATABASE_URL='your_database_url_here')
 **Testing**: pytest for backend, Jest for frontend
 **Target Platform**: Linux server (web application backend)
 **Project Type**: Web - extending existing backend with new chat endpoint and conversation management

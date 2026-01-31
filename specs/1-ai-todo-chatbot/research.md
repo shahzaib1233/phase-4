@@ -75,7 +75,7 @@ This research document addresses technical unknowns and establishes best practic
 - `conversations` table: id, user_id (FK to users), created_at, updated_at
 - `messages` table: id, conversation_id (FK to conversations), user_id (FK to users), role (user/assistant), content, created_at
 - Proper indexing on user_id and conversation_id for performance
-- Using Neon DB URL: postgresql://neondb_owner:npg_XwKLDv1o3CyM@ep-cool-cherry-abr7d232-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+- Using Neon DB URL: your_database_url_here
 
 ## 6. Error Handling and User Experience
 

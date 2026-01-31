@@ -31,7 +31,7 @@ Constraints:
 
 Code strictly in /backend/ folder only (main.py, routes/, models.py, db.py, dependencies.py)
 Use FastAPI, SQLModel, pyjwt — no additional major libraries
-Database connection string: postgresql://neondb_owner:npg_o9OLfwn0mCNT@ep-late-sun-adcwxiyv-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=req single task
+Database connection string: your_database_url_here
 PUT /api/{user_id}/tasks/{id} → Update task
 DELETE /api/{user_id}/tasks/{id} → Delete task
 PATCH /api/{user_id}/tasks/{id}/complete → Toggle completed status

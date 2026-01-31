@@ -49,7 +49,7 @@ Planning guidelines:
 - Strictly follow Project Constitution, Phase III spec, and Cohere compatibility rules
 - Use OpenAI Agents SDK with custom AsyncOpenAI client: base_url="https://api.cohere.ai/compatibility/v1", api_key=your_cohere_key
 - Break into logical phases with clear dependencies
-- Neon DATABASE_URL updated to: postgresql://neondb_owner:npg_XwKLDv1o3CyM@ep-cool-cherry-abr7d232-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+- Neon DATABASE_URL updated to: your_database_url_here
 - Add new models: Conversation, Message (SQLModel)
 - Prioritize: JWT verification → user_id validation in tools → stateless DB flow → tool calling loop
 - Each phase ends with validation (Full-Stack Integrator + Reviewer & Tester)

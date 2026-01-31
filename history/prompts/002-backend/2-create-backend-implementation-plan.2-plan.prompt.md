@@ -45,8 +45,8 @@ Planning guidelines:
 - Break work into logical sequential phases with clear dependencies
 - Each phase must include database, auth, and route implementation where needed
 - Use provided credentials exactly:
-  - DATABASE_URL = postgresql://neondb_owner:npg_oLwn0mCNT@ep-late-sun-adcwxiyv-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
-  - BETTER_AUTH_SECRET = XVnB1zTnXfBum9I5uDms1TRbwAe6tyD6
+  - DATABASE_URL = your_database_url_here
+  - BETTER_AUTH_SECRET = your_auth_secret_here
 - Prioritize security: JWT verification first, then ownership check on every route
 - All routes must use dependency injection for current_user and db session
 - Plan must make OpenAPI/Swagger docs automatically perfect

@@ -72,7 +72,7 @@ This document defines the data models for the AI-Powered Todo Chatbot with Coher
 - Composite: `(user_id, created_at)` - For efficient user timeline queries
 
 ### Connection
-- Database connection uses: postgresql://neondb_owner:npg_XwKLDv1o3CyM@ep-cool-cherry-abr7d232-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+- Database connection uses: your_database_url_here
 
 ## 5. Sample SQLModel Definitions
 
